@@ -37,7 +37,7 @@ body {
 .tree {
     width: 200px;
     height: 300px;
-    margin: 80px auto 0 auto;
+    margin: 20px auto 0 auto;
     position: relative;
     /*相对定位*/
 /*     border: 1px solid #fff; */
@@ -341,10 +341,38 @@ body {
         box-shadow: 0 0 4px 4px #fff;
     }
 }
+#picture {
+    width: 200px;
+    animation: fadeIn 2s;
+    margin-top: 20px;
+} 
+.slowLights {
+    animation: slowLights infinite 2s !important;
+}
+body {
+    text-align: center;
+    position: relative;
+}
+@keyframes slowLights {
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+}
+@keyframes fadeIn {
+    0% {
+        transform: translateX(550%);
+    }
+    100% {
+    }
+}
 </style>
     </head>
     <body> 
         <p class="word"> 同志们！2022圣诞快乐！ </p>
+        <img id="picture" src="./we.jpg" alt="">
         <div class="tree">
             <div class="star">
                 <div class="star-in"></div>
@@ -404,6 +432,11 @@ body {
                 <div></div>
             </div>
         </div>
- 
+        <script>
+            setTimeout(() => {
+                const img = document.getElementById('picture')
+                img.className = 'slowLights'
+            }, 2000)
+        </script>
     </body>
 </html>
